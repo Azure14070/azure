@@ -1,0 +1,19 @@
+<html>
+    <head></head>
+    <body>
+
+<div id="main"></div>
+
+<script>
+var post = {title:'我的博文',content:'博文内容'};
+
+$.get("tpl/post.tpl", function(result){      
+      result.replace(':title',post.title);
+      result.replace(':content',post.content);
+      $("#main").html(result);
+    });
+
+</script>
+<script src="js/jquery-2.1.0.min.js"></script>
+</body>
+</html>

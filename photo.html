@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="assets/css/demo.css" rel="stylesheet">
+
+<!--nav-->
+    <link href="assets/css/header.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/navstyle.css"> 
+    <script src="js/navmain.js"></script> 
+    <script src="js/navmodernizr.js"></script> 
+<!--gallery-->
+   <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+   <link href="assets/css/gallery.css" rel="stylesheet">
+
+  
+
+    
+</head>
+<body>
+
+<!--nav-->
+    <div id="cd-nav">
+            <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+            <nav id="cd-main-nav">
+                <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="photo.html">PHOTO</a></li>
+                        <li><a href="attitude1.html">ATTITUDE</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="login.html">LOGIN</a></li>
+                </ul>
+            </nav>
+    </div>
+
+<div>
+    <img src="assets/images/coast1.jpg" >
+</div>
+
+
+
+
+<!--title-->
+<div class="title1">
+    <p><b>“ 生 活 出 口 ”</b></p>
+</div>
+
+<div class="features-alist">
+
+    <h2>PHOTO</h2>
+</div>
+
+
+
+<!--图片廊-->
+<div class="container">
+        <div class="row">
+              <div class="col-sm-4 r1" >   <img  src="assets/images/1.jpg" class="pimg"/></div>
+              <div class="col-sm-4 r2" >   <img  src="assets/images/2.jpg" class="pimg"/></div>
+              <div class="col-sm-4 r3" >   <img  src="assets/images/3.jpg" class="pimg"/></div>
+              
+        </div>       
+        <div class="row">
+                <div class="col-sm-4 r1" >   <img  src="assets/images/4.jpg" class="pimg"/></div>
+                <div class="col-sm-4 r2" >   <img  src="assets/images/6.jpg" class="pimg"/></div>
+                <div class="col-sm-4 r3" >   <img  src="assets/images/7.jpg" class="pimg"/></div>
+      </div>    
+      <div class="row">
+            <div class="col-sm-4 r1" >   <img  src="assets/images/P8.jpg" class="pimg"/></div>
+            <div class="col-sm-4 r2" >   <img  src="assets/images/5.jpg" class="pimg"/></div>
+            <div class="col-sm-4 r3" >   <img  src="assets/images/P9.jpg" class="pimg"/></div>
+  </div>    
+  <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;">
+        <div id="innerdiv" style="position:absolute;">
+            <img id="bigimg" style="border:5px solid #fff;" src="" />
+</div>
+</div>
+        
+<!--点击缩略图-->
+　<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+	<script >
+        $(function(){  
+        $(".pimg").click(function(){  
+            var _this = $(this); 
+            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);  
+        });  
+    });  
+ 
+    function imgShow(outerdiv, innerdiv, bigimg, _this){  
+        var src = _this.attr("src"); 
+        $(bigimg).attr("src", src);
+      
+      
+        $("<img/>").attr("src", src).load(function(){  
+            var windowW = $(window).width();
+            var windowH = $(window).height();
+            var realWidth = this.width; 
+            var realHeight = this.height;  
+            var imgWidth, imgHeight;  
+            var scale = 0.8;  
+              
+            if(realHeight>windowH*scale) { 
+                imgHeight = windowH*scale; 
+                imgWidth = imgHeight/realHeight*realWidth; 
+                if(imgWidth>windowW*scale) { 
+                    imgWidth = windowW*scale;  
+                }  
+            } else if(realWidth>windowW*scale) {
+                imgWidth = windowW*scale;
+                            imgHeight = imgWidth/realWidth*realHeight;  
+            } else {
+                imgWidth = realWidth;  
+                imgHeight = realHeight;  
+            }  
+                    $(bigimg).css("width",imgWidth);  
+              
+            var w = (windowW-imgWidth)/2; 
+            var h = (windowH-imgHeight)/2;
+            $(innerdiv).css({"top":h, "left":w});
+            $(outerdiv).fadeIn("fast");
+        });  
+          
+        $(outerdiv).click(function(){
+            $(this).fadeOut("fast");  
+        });  
+    }
+    </script>
+
+<!--分页-->
+<div class="page">
+    <ul class="pagination"> 
+        <li><a href="photo.html">«</a></li>
+        <li><a class="active" href="photo.html">1</a></li>
+        <li><a href="photo2.html">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="photo2.html">»</a></li>
+    </ul>     
+</div>
+
+
+ <!--footer-->
+ <footer>
+    <div class="footer-left">
+        <h3>Azure's photography</h3>
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">Photo</a>
+            ·
+            <a href="#">Attitude</a>
+            ·
+            <a href="#">About</a>
+        </p>
+        <p class="footer-company-name">Azure &copy; 2018</p>
+    </div>
+
+    <div class="footer-right"  data-bottom-top="max-width: 200px;" data-bottom-bottom="max-width: 600px;">
+        <form method="get" action="#">
+            <input placeholder="Search our website"  />
+            <i class="fa fa-search "></i>
+        </form>
+    </div>
+</footer>  
+</body>
+</html>

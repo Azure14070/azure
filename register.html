@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" type="text/css" href="assets/css/login.css">
+<style type="text/css">
+body,td,th { font-family: "Source Sans Pro", sans-serif; }
+body { background-color: #2B2B2B; }
+</style>
+</head>
+<body>
+
+		<div class="return">
+				<a href="login.html">	<img src="assets/images/上一步.png">   </a>
+			</div>
+			
+
+<div class="wrapper">
+
+	<div class="container1">
+		<h1>Welcome</h1>
+		<form class="form">
+			<input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="RePassword">
+            <input type="text" placeholder="E-Mail">
+			<a href="login.html"><button type="button" id="register-button">Register</button></a>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	
+</div>
+
+<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+$("#register-button").click(function(event){
+
+	event.preventDefault();
+	$("p").show();
+	setTimeout(function(){
+		alert("注册成功！");
+		location.href="login.html";
+	},1);
+		
+	});
+
+</script>
+
+</body>
+</html>
